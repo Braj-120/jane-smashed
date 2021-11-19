@@ -13,7 +13,7 @@ module.exports.extractContent = async function() {
          c.abbreviation, c.url, mp.protocol, s.id FROM addresses a INNER JOIN
          servers s ON a.server_id = s.id INNER JOIN pools p ON s.pool_id = p.id INNER JOIN
          ports pts ON pts.server_id = s.id INNER JOIN cryptos c ON c.id = pts.crypto_id INNER JOIN 
-         (SELECT * FROM miningproperties WHERE status = 1) mp ON mp.server_id = s.id AND a.address = mp.address AND pts.number = mp.port;`;
+         (SELECT * FROM miningProperties WHERE status = 1) mp ON mp.server_id = s.id AND a.address = mp.address AND pts.number = mp.port;`;
         return conn.queryStream(query);
     } catch (error) {
         console.error(error);
