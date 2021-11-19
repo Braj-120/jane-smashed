@@ -4,6 +4,14 @@ server {
     root /app/public;
     index index.php;
 
+    error_log /app/reverse-error.log;
+
+    location /api/ {
+	proxy_set_header Host $host;
+	rewrite ^/api^/ /$1 break;
+	proxy_pass http://api-server:3000/;
+    }
+
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
