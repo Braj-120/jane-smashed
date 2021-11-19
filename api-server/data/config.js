@@ -5,13 +5,13 @@ module.exports = {
     },
     "token": {
         "expiry": "3d",
-            "iss": "API Server"
+        "iss": "API Server"
     },
     "database": {
         "host": process.env.DB_HOST,
-            "user": process.env.DB_USER,
-                "password": process.env.DB_PWD,
-                    "database": process.env.DB,
-                        "connectionLimit": 5
+        "user": process.env.DB_USER,
+        "password": process.env.DB_PWD,
+        "database": process.env.DB,
+        "connectionLimit": 5
     }
 }
