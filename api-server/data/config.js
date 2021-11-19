@@ -13,5 +13,8 @@ module.exports = {
         "password": process.env.DB_PWD,
         "database": process.env.DB,
         "connectionLimit": 5
-    }
+    },
+    "log_level": "info",
+    "error_log": __dirname + '/error.log',
+    "normal_log": __dirname + "/out.log"
 }

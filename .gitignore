@@ -4,3 +4,4 @@ php-fpm/data
 php-fpm/data/*
 node_modules
 package-lock.json
+*.log
