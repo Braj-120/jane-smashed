@@ -57,7 +57,13 @@ module.exports.validateToken = async function (token, host) {
         if (rows.length === 0) {
             return false;
         }
-        const tokenOut = jwt.verify(token, rows[0].secret);
+        let tokenOut;
+        try {
+            tokenOut = jwt.verify(token, rows[0].secret);
+        } catch(err) {
+            return false;
+        }
+        
         if (host === tokenOut.host && rows[0].token === token) {
             return true;
         }
