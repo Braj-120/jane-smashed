@@ -13,6 +13,9 @@ module.exports.getUser = async function(username, password) {
     try {
         conn = await pool.getConnection();
         const rows = await conn.query("SELECT * FROM users WHERE name=?",[username]);
+        if(!rows || rows.length === 0) {
+            return false;
+        }
         if (rows.length > 1) {
             throw new Error('Multiple Users detected');
         }
